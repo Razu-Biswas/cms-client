@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/contact",
+        "https://cms-server-lemon.vercel.app/api/contact",
         formData
       );
 

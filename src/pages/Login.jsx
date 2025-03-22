@@ -35,10 +35,13 @@ const Login = () => {
     setLoading(true); // Show spinner
 
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "https://cms-server-lemon.vercel.app/api/login",
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       const token = response.data.token;
       if (response.data) {

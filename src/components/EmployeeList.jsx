@@ -25,7 +25,7 @@ const EmployeeList = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/employees?page=${currentPage}&limit=${pageSize}&search=${search}&searchField=${searchField}`
+        `https://cms-server-lemon.vercel.app/api/employees?page=${currentPage}&limit=${pageSize}&search=${search}&searchField=${searchField}`
       );
       const data = await response.json();
       setEmployees(data.employees);
@@ -45,7 +45,7 @@ const EmployeeList = () => {
   const deleteEmployee = async (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       try {
-        await fetch(`http://localhost:5000/api/employees/${id}`, {
+        await fetch(`https://cms-server-lemon.vercel.app/api/employees/${id}`, {
           method: "DELETE",
         });
         setMessage("Employee deleted successfully!");
@@ -79,7 +79,7 @@ const EmployeeList = () => {
     });
 
     doc.save(`${employee.name}_Details.pdf`);
-    toast.success("PDF downloaded successfully!");
+    toast?.success("PDF downloaded successfully!");
   };
 
   return (

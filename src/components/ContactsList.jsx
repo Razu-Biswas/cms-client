@@ -25,7 +25,7 @@ const ContactsList = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/contactsList?page=${currentPage}&limit=${pageSize}&search=${search}&searchField=${searchField}`
+        `https://cms-server-lemon.vercel.app/api/contactsList?page=${currentPage}&limit=${pageSize}&search=${search}&searchField=${searchField}`
       );
       const data = await response.json();
       setContacts(data.contacts);
@@ -45,7 +45,7 @@ const ContactsList = () => {
   const deleteContact = async (id) => {
     if (window.confirm("Are you sure you want to delete this Contact?")) {
       try {
-        await fetch(`http://localhost:5000/api/contact/${id}`, {
+        await fetch(`https://cms-server-lemon.vercel.app/api/contact/${id}`, {
           method: "DELETE",
         });
         setMessage("Contact deleted successfully!");

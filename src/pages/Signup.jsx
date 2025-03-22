@@ -36,11 +36,14 @@ const Signup = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/signup", {
-        fullName: formData.fullName,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "https://cms-server-lemon.vercel.app/api/signup",
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       localStorage.setItem("token", response.data.token); // Store token
       localStorage.setItem("user", JSON.stringify(response.data.user)); // Store user details
