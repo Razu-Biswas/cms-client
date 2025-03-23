@@ -66,13 +66,13 @@ const ContactsList = () => {
       head: [["Field", "Value"]],
       body: [
         ["ID", contact.contactId],
-        ["Name", contact.name],
+        ["Name", contact.fullName],
         ["Email", contact.email],
         ["Message", contact.message],
       ],
     });
 
-    doc.save(`${contact.name}_Details.pdf`);
+    doc.save(`${contact.fullName}_Details.pdf`);
     toast.success("PDF downloaded successfully!");
   };
 
@@ -141,7 +141,7 @@ const ContactsList = () => {
                   <td className="p-3">
                     {(currentPage - 1) * pageSize + index + 1}
                   </td>
-                  <td className="p-3">{contact.name}</td>
+                  <td className="p-3">{contact.fullName}</td>
                   <td className="p-3">{contact.email}</td>
                   {/* <td className="p-3">{employee.department}</td>
                   <td className="p-3">{employee.designation}</td> */}
@@ -227,7 +227,7 @@ const ContactsList = () => {
             {/* Header Section */}
             <div className="flex justify-between items-center border-b pb-3">
               <h3 className="text-xl font-semibold text-gray-800">
-                {selectedContact.name}
+                {selectedContact.fullName}
               </h3>
               <button
                 onClick={() => setSelectedContact(null)}
